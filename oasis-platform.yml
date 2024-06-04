@@ -5,39 +5,6 @@ volumes:
   celery-db-OasisData:
   filestore-OasisData:
 
-x-shared-env: &shared-env
-  OASIS_DEBUG: 1
-  OASIS_URL_SUB_PATH: 0
-  OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
-  OASIS_SERVER_DB_HOST: server-db
-  OASIS_SERVER_DB_PASS: oasis
-  OASIS_SERVER_DB_USER: oasis
-  OASIS_SERVER_DB_NAME: oasis
-  OASIS_SERVER_DB_PORT: 5432
-  OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
-  OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
-  OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
-  OASIS_CELERY_DB_HOST: celery-db
-  OASIS_CELERY_DB_PASS: password
-  OASIS_CELERY_DB_USER: celery
-  OASIS_CELERY_DB_NAME: celery
-  OASIS_CELERY_DB_PORT: 5432
-  OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
-  OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
-
-x-oasis-env-v1: &oasis-env-v1
-  OASIS_DEBUG: ${DEBUG:-0}
-  OASIS_RABBIT_HOST: broker
-  OASIS_RABBIT_PORT: 5672
-  OASIS_RABBIT_USER: rabbit
-  OASIS_RABBIT_PASS: rabbit
-  OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
-  OASIS_CELERY_DB_HOST: celery-db
-  OASIS_CELERY_DB_PASS: password
-  OASIS_CELERY_DB_USER: celery
-  OASIS_CELERY_DB_NAME: celery
-  OASIS_CELERY_DB_PORT: 5432
-
 services:
   server:
     restart: always
@@ -51,7 +18,24 @@ services:
       - celery-db
       - broker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
       STARTUP_RUN_MIGRATIONS: "true"
       OASIS_ADMIN_USER: admin
       OASIS_ADMIN_PASS: password
@@ -69,7 +53,24 @@ services:
     ports:
       - 8001:8001
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
     volumes:
       - filestore-OasisData:/shared-fs:rw
 
@@ -82,7 +83,24 @@ services:
       - celery-db
       - broker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
     volumes:
       - filestore-OasisData:/shared-fs:rw
 
@@ -95,7 +113,24 @@ services:
       - celery-db
       - broker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
     volumes:
       - filestore-OasisData:/shared-fs:rw
 
@@ -108,7 +143,24 @@ services:
       - celery-db
       - broker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
     volumes:
       - filestore-OasisData:/shared-fs:rw
 
@@ -121,7 +173,24 @@ services:
       - celery-db
       - broker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
     volumes:
       - filestore-OasisData:/shared-fs:rw
 
@@ -135,7 +204,24 @@ services:
       - celery-db
       - broker:mybroker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
       OASIS_MODEL_SUPPLIER_ID: OasisLMF
       OASIS_MODEL_ID: PiWind
       OASIS_MODEL_VERSION_ID: 'v1'
@@ -154,7 +240,24 @@ services:
       - celery-db
       - broker:mybroker
     environment:
-      <<: *shared-env
+      OASIS_DEBUG: 1
+      OASIS_URL_SUB_PATH: 0
+      OASIS_CELERY_BROKER_URL: "amqp://rabbit:rabbit@broker:5672"
+      OASIS_SERVER_DB_HOST: server-db
+      OASIS_SERVER_DB_PASS: oasis
+      OASIS_SERVER_DB_USER: oasis
+      OASIS_SERVER_DB_NAME: oasis
+      OASIS_SERVER_DB_PORT: 5432
+      OASIS_SERVER_CHANNEL_LAYER_HOST: channel-layer
+      OASIS_SERVER_DB_ENGINE: django.db.backends.postgresql_psycopg2
+      OASIS_CELERY_DB_ENGINE: db+postgresql+psycopg2
+      OASIS_CELERY_DB_HOST: celery-db
+      OASIS_CELERY_DB_PASS: password
+      OASIS_CELERY_DB_USER: celery
+      OASIS_CELERY_DB_NAME: celery
+      OASIS_CELERY_DB_PORT: 5432
+      OASIS_INPUT_GENERATION_CONTROLLER_QUEUE: task-controller
+      OASIS_LOSSES_GENERATION_CONTROLLER_QUEUE: task-controller
       OASIS_MODEL_SUPPLIER_ID: OasisLMF
       OASIS_MODEL_ID: PiWind
       OASIS_MODEL_VERSION_ID: 'v2'
